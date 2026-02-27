@@ -474,6 +474,37 @@
   margin-top: 6px;
 }
 
+.rn-data-status {
+  border-radius: 18px;
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.9);
+}
+
+.rn-data-status-body {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.rn-data-status-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.rn-data-status-label {
+  opacity: 0.7;
+}
+
+.rn-data-status-value {
+  font-weight: 500;
+  text-align: right;
+}
+
 .rn-evidence-column {
   border-radius: 12px;
   padding: 8px 9px;

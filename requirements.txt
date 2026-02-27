@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+httpx
+openai
+python-dotenv
+neo4j
+pydantic
+requests
