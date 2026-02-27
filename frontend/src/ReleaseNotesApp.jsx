@@ -45,14 +45,15 @@ export function ReleaseNotesApp() {
     setError("");
     setStatus("idle");
 
+    const apiBase = import.meta.env.VITE_API_URL || "";
     try {
       const [answerRes, traceRes] = await Promise.allSettled([
-        fetch("/answer", {
+        fetch(`${apiBase}/answer`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: trimmed })
         }),
-        fetch("/trace", {
+        fetch(`${apiBase}/trace`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: trimmed })
@@ -134,16 +135,10 @@ export function ReleaseNotesApp() {
 
       <header className="rn-hero-header">
         <div className="rn-hero-title-group">
-          <h1 className="rn-hero-title">
-            Release Hub —{" "}
-            <span className="rn-hero-gradient">
-              Intelligent Release Note System
-            </span>
+          <h1 className="rn-hero-title rn-hero-title-agent">
+            <span className="rn-hero-gradient">ReleaseHub</span>
+            <span className="rn-agent-badge">Agent</span>
           </h1>
-          <p className="rn-hero-subtitle">
-            Ask about vendor releases, CVEs, and patches. Let the system
-            decide when to answer vs abstain.
-          </p>
         </div>
 
         <div className="rn-hero-header-actions">
@@ -188,60 +183,27 @@ export function ReleaseNotesApp() {
 
       <main className="rn-hero-main">
         {activeTab === "chat" ? (
-          <div className="rn-chat-layout">
-            <section className="rn-chat-column">
-              <div className="rn-chat-card">
-                <div className="rn-chat-header">
-                  <div className="rn-env-pill">Prod · EU-West</div>
-                  <div className={`rn-status-pill ${statusClass}`}>
-                    {statusLabel}
-                  </div>
-                </div>
-
-                <div className="rn-chat-input-wrap">
-                  <textarea
-                    className="rn-chat-textarea"
-                    placeholder="Ask about latest versions, CVEs, patches… (vendors only)"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    rows={3}
-                  />
-                  <div className="rn-chat-actions">
-                    <div className="rn-suggestion-row">
-                      {SUGGESTIONS.map((s) => (
-                        <button
-                          key={s}
-                          type="button"
-                          className="rn-suggestion-pill"
-                          onClick={() => handleSuggestionClick(s)}
-                        >
-                          {s}
-                        </button>
-                      ))}
+          <div className="rn-chat-layout rn-chat-layout-bottom-input">
+            <section className="rn-chat-scroll-area">
+              <div className="rn-chat-content-grid">
+                <div className="rn-chat-column">
+                  <div className="rn-chat-card">
+                    <div className="rn-chat-header">
+                      <div className="rn-env-pill">Prod · Render</div>
+                      <div className={`rn-status-pill ${statusClass}`}>
+                        {statusLabel}
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      className="rn-primary-btn"
-                      onClick={handleAsk}
-                      disabled={loading}
-                    >
-                      {loading ? "Thinking…" : "Ask"}
-                    </button>
                   </div>
+                  <AnswerCard
+                    answer={answer}
+                    meta={meta}
+                    status={status}
+                    loading={loading}
+                    error={error}
+                  />
                 </div>
-              </div>
-
-              <AnswerCard
-                answer={answer}
-                meta={meta}
-                status={status}
-                loading={loading}
-                error={error}
-              />
-            </section>
-
-            <section className="rn-side-column">
+                <section className="rn-side-column">
               <DataStatus dataStatus={dataStatus} loading={loading} />
               <EvidencePanel
                 coreEvidence={coreEvidence}
@@ -254,6 +216,43 @@ export function ReleaseNotesApp() {
                 onToggle={() => setDebugOpen((o) => !o)}
                 traceJson={traceJson}
               />
+                </section>
+              </div>
+            </section>
+
+            <section className="rn-input-bar">
+              <div className="rn-input-bar-inner">
+                <textarea
+                  className="rn-chat-textarea rn-chat-textarea-full"
+                  placeholder="Ask about versions, CVEs, patches… (e.g. What is the patch for Linux on 14-02-2026?)"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  rows={2}
+                />
+                <div className="rn-input-bar-actions">
+                  <div className="rn-suggestion-row">
+                    {SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        className="rn-suggestion-pill"
+                        onClick={() => handleSuggestionClick(s)}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    className="rn-primary-btn"
+                    onClick={handleAsk}
+                    disabled={loading}
+                  >
+                    {loading ? "Thinking…" : "Ask"}
+                  </button>
+                </div>
+              </div>
             </section>
           </div>
         ) : (

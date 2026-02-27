@@ -1,4 +1,18 @@
 services:
+  # Frontend (static site on Render)
+  - type: web
+    name: releasehub-frontend
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+
   # Public web service (backend API)
   - type: web
     name: patch-answer-service
