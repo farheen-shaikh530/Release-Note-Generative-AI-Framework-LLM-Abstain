@@ -1,67 +1,57 @@
-# ReleaseHub Agents (Backend)
+# ReleaseHub
 
-This is the backend service for **ReleaseHub Agents**, a safety-first release/version intelligence assistant.
+Release intelligence UI + API: natural-language questions about OS versions and Linux patches, backed by [ReleaseTrain](https://releasetrain.io).
 
-It exposes HTTP APIs that:
-- Accept a natural language question about OS/software releases.
-- Run the question through a chain of agents (router, vendor/date gate, retriever, fact builder, verifier, answer composer).
-- Return either a verified version answer with evidence, or an explicit abstain response.
+## Run locally
 
-## Tech stack
-
-- **FastAPI** for the HTTP API.
-- **OpenAI** for limited-language tasks (classification + answer formatting).
-- **httpx/requests** for calling Releasetrain, Tavily and other HTTP APIs.
-- **Neo4j** (via a separate client module) for writing explanation graphs.
-
-The data-lake layer (Postgres + Node.js, optional Redis cache) and Neo4j implementation are owned by the data/graph services. The data lake exposes `GET /facts/latest`, `GET /facts/on-date`, and `POST /ingest`. When `REDIS_HOST` is set (Render Key Value), fact lookups are cached (5–10 min TTL) for faster repeat queries.
-
-## Running locally
-
-1. Create and activate a virtual environment (optional but recommended):
+**Backend**
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
+npm install
+npm run dev
 ```
 
-2. Install dependencies:
+Default: **http://localhost:3000**
+
+**Frontend**
 
 ```bash
-pip install -r requirements.txt
+cd frontend && npm install && npm run dev
 ```
 
-3. Set the required environment variables (at minimum):
+Set `frontend/.env` if the API is not proxied:
 
-- `OPENAI_API_KEY`
-- `RELEASETRAIN_VENDOR_API` (default: `https://releasetrain.io/api/c/names`)
-- `RELEASETRAIN_COMPONENT_API` (default: `https://releasetrain.io/api/component?q=os`)
-- `TAVILY_API_KEY` (if using Tavily)
-- `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD` (if Neo4j is enabled)
+```env
+VITE_API_URL=http://localhost:3000
+```
 
-You can store these in a `.env` file during development.
+## Docker — **yes, it is included**
 
-4. Run the development server:
+From the **repository root**:
 
 ```bash
-uvicorn backend.main:app --reload
+docker compose up --build
 ```
 
-The health-check endpoint will be available at `GET /health`.
+| Service | URL |
+|--------|-----|
+| Web (Nginx + React) | **http://localhost:8080** |
+| API (direct) | **http://localhost:3000** |
 
-## Render deployment
+Details: **[docs/DOCKER.md](./docs/DOCKER.md)**  
+Files: `Dockerfile` (API), `docker-compose.yml`, `frontend/Dockerfile`, `frontend/nginx.conf`
 
-On Render, configure a **Web Service**:
+## Good practices (LLM, API, Docker)
 
-- Start command: `uvicorn backend.main:app --host 0.0.0.0 --port 10000`
-- Environment: Python 3.11+ recommended.
-- Add the same environment variables as above in the Render dashboard.
+See **[docs/GOOD_PRACTICES.md](./docs/GOOD_PRACTICES.md)** — including guidance for **Claude / LLM** integration (source of truth, timeouts, fallback, secrets, privacy) and production notes.
 
-## High-level API
+## Publish online
 
-- `GET /health` – simple health check.
-- `POST /answer` – main endpoint to run the agent pipeline.
-- `GET /trace/{query_id}` – returns the internal agent trace for a past query (for the UI debug panel).
+See **[docs/DEPLOY.md](./docs/DEPLOY.md)** (Render, Railway, Fly.io, VPS). Optional **[render.yaml](./render.yaml)** for Render Blueprints — set `VITE_API_URL` to your deployed API URL.
 
-The detailed contract for `/answer` and `/trace` will be finalised once all agents are wired together.
+## Docs
 
+- [docs/DEBUGGING_DATA_EXTRACTION.md](./docs/DEBUGGING_DATA_EXTRACTION.md)
+- [docs/DATA_SCHEMA_OS.md](./docs/DATA_SCHEMA_OS.md)
+- [docs/DATA_SCHEMA_LINUX_PATCH.md](./docs/DATA_SCHEMA_LINUX_PATCH.md)
+- [docs/SYSTEM_ARCHITECTURE_AND_TEST_PROMPTS.txt](./docs/SYSTEM_ARCHITECTURE_AND_TEST_PROMPTS.txt)

@@ -1,18 +1,19 @@
 {
-  "name": "releasehub-agents-frontend",
-  "version": "0.0.1",
+  "name": "releasehub-frontend",
+  "version": "1.0.0",
   "private": true,
+  "description": "ReleaseHub React UI using Logo3.png",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@vitejs/plugin-react-swc": "^4.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.0",
-    "vite": "^5.4.0"
+    "vite": "^7.3.1"
   }
 }
