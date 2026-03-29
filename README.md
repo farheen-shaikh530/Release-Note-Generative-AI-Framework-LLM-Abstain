@@ -64,3 +64,17 @@ Returns:
 
 ## ⚙️ System Architecture
 
+
+## Product Demonstration
+
+
+<img width="1000" height="600" alt="Screenshot 2026-03-29 at 4 54 18 PM" src="https://github.com/user-attachments/assets/ab809719-155e-487f-b5b4-ce1f99a4f855" />
+<img width="1000" height="600" alt="Screenshot 2026-03-29 at 4 52 14 PM" src="https://github.com/user-attachments/assets/82d5be55-49bd-410a-aed0-e289a3dd1d17" />
+
+
+## Experiment Result
+
+## Future Directions
+
+
+
