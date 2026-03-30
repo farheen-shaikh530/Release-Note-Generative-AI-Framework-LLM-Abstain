@@ -7,8 +7,9 @@
 </h1>
 
 <p align="center">
-  <b>Owned by: Farheen Shabbir Shaikh</b><br>
-  <b>Implementation Type : Reearch Project</b><br>
+  <b>Author:</b> Farheen Shabbir Shaikh <br>
+  <b>My Role:</b> Researcher & Developer <br>
+  <b>Project Type:</b> Research Project
 </p>
 
 ---
@@ -25,7 +26,7 @@ CI/CD pipelines enable rapid and reliable software delivery but also introduce s
 
 ---
 
-## 🧠 Proposed Approach
+## Proposed Approach
 
 To reduce hallucination in CI/CD workflows, this system uses two techniques:  
 (1) advanced prompting  
@@ -54,7 +55,7 @@ Returns:
 
 ---
 
-## Research setup
+## Implementation & Deployment setup
 
 ### Data Source
 
@@ -146,6 +147,7 @@ When evidence is insufficient (e.g., unlisted vendors or no patch available for 
 **Figure 4:** This figure shows how hallucination rates decrease as mitigation techniques are applied. The baseline has the highest rate, while external knowledge restriction, iterative refinement, and directional prompting progressively improve accuracy. The combined approach achieves the lowest hallucination rate, demonstrating the effectiveness of layered, evidence-based controls.
 
 ---
+
 
 ## Future Directions
 
