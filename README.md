@@ -7,7 +7,6 @@
 </h1>
 
 <p align="center">
-  <b>Author:</b> Farheen Shabbir Shaikh <br>
   <b>Project Type:</b> Research Project <br>
   <b>My Role:</b> Researcher & Developer 
   
