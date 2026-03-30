@@ -137,7 +137,7 @@ When evidence is insufficient (e.g., unlisted vendors or no patch available for 
 
 ---
 
-## Experiment Result
+## System Behaviour
 
 <p align="center">
   <img width="800" alt="Screenshot 2026-03-29 at 5 49 47 PM" src="https://github.com/user-attachments/assets/51ad3f0f-d7a2-46e3-8cbe-2992a8abde39" />
