@@ -150,4 +150,4 @@ __marimo__/
 docker-compose.yml
 frontend/nginx.conf
 Dockerfile
-frontend/Dockerfile
+frontend/Dockerfilefrontend/dist.zip
