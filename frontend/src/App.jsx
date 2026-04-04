@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-const API_BASE = 'http://127.0.0.1:3001';
+const API_BASE = '';
 const MAX_CHAT_ITEMS = 3;
 const VENDORS_API = `${API_BASE}/api/vendors`;
 const ANALYTICS_BASE = `${API_BASE}/api/analytics/summary`;
