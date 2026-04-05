@@ -26,13 +26,13 @@ CI/CD pipelines enable rapid and reliable software delivery but also introduce s
 
 ---
 
-## Proposed Approach
+## System Overview
 
 To reduce hallucination in CI/CD workflows, this system uses two techniques:  
-(1) advanced prompting  
-(2) abstention with “I don’t know”
+(1) Advanced prompting  
+(2) Abstention with “I don’t know”
 
-### 🔹 Advanced Prompting
+###  Advanced Prompting
 
 #### External Knowledge Restriction
 Limits the LLM to use only retrieved, trusted data instead of its internal knowledge, ensuring responses are grounded and verifiable.
@@ -45,7 +45,7 @@ Guides the model with structured hints to focus on relevant aspects like vendor,
 
 ---
 
-### 🛑 Abstention
+###  Abstention
 
 Returns:
 > “I don’t know based on available verified data”
