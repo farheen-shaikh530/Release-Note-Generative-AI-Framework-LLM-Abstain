@@ -112,7 +112,9 @@ Returns:
 ## Product Demonstration
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/ab809719-155e-487f-b5b4-ce1f99a4f855" width="800"/>
+  
+  <img width="1504" height="866" alt="UI" src="https://github.com/user-attachments/assets/b583f496-8c28-4efd-be22-ae79835bb9e7" />
+ 
 </p>
 
 **Figure 1: User Interface for Prompt Guidance and System Monitoring.**  
@@ -121,7 +123,8 @@ The interface guides users in forming structured prompts and provides a dashboar
 ---
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/82d5be55-49bd-410a-aed0-e289a3dd1d17" width="800"/>
+<img width="722" height="418" alt="Response" src="https://github.com/user-attachments/assets/86b42eba-638d-4116-b9a4-1b227cd1a683" />
+
 </p>
 
 **Figure 2: Patch Query Response Based on Intent Detection.**  
@@ -130,21 +133,14 @@ The system detects patch-related intent in the query and returns a grounded resp
 ---
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f91d113f-0797-44f2-bbad-f045c15c066c" width="800"/>
+
+  <img width="1647" height="954" alt="Abstain" src="https://github.com/user-attachments/assets/9cc445d8-4c4c-4dbd-aff3-69ce1119636e" />
+
 </p>
 
 **Figure 3: Abstention Mechanism for Insufficient Evidence.**  
 When evidence is insufficient (e.g., unlisted vendors or no patch available for the specified date), the system abstains and returns an “I don’t know” response instead of generating incorrect information.
 
----
-
-## System Behaviour
-
-<p align="center">
-  <img width="800" alt="Screenshot 2026-03-29 at 5 49 47 PM" src="https://github.com/user-attachments/assets/51ad3f0f-d7a2-46e3-8cbe-2992a8abde39" />
-</p>
-
-**Figure 4:** This figure shows how hallucination rates decrease as mitigation techniques are applied. The baseline has the highest rate, while external knowledge restriction, iterative refinement, and directional prompting progressively improve accuracy. The combined approach achieves the lowest hallucination rate, demonstrating the effectiveness of layered, evidence-based controls.
 
 ---
 
