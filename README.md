@@ -116,7 +116,7 @@ Returns:
 
 <p align="center">
   
-  <img width="1504" height="866" alt="UI" src="https://github.com/user-attachments/assets/b583f496-8c28-4efd-be22-ae79835bb9e7" />
+  <img width="700" height="500" alt="UI" src="https://github.com/user-attachments/assets/b583f496-8c28-4efd-be22-ae79835bb9e7" />
  
 </p>
 
@@ -126,7 +126,7 @@ The interface guides users in forming structured prompts and provides a dashboar
 ---
 
 <p align="center">
-<img width="722" height="418" alt="Response" src="https://github.com/user-attachments/assets/86b42eba-638d-4116-b9a4-1b227cd1a683" />
+<img width="700" height="500" alt="Response" src="https://github.com/user-attachments/assets/86b42eba-638d-4116-b9a4-1b227cd1a683" />
 
 </p>
 
@@ -137,7 +137,7 @@ The system detects patch-related intent in the query and returns a grounded resp
 
 <p align="center">
 
-  <img width="1647" height="954" alt="Abstain" src="https://github.com/user-attachments/assets/9cc445d8-4c4c-4dbd-aff3-69ce1119636e" />
+  <img width="700" height="500" alt="Abstain" src="https://github.com/user-attachments/assets/9cc445d8-4c4c-4dbd-aff3-69ce1119636e" />
 
 </p>
 
