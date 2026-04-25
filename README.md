@@ -8,7 +8,7 @@
 
 <p align="center">
   <b>Project Type:</b> Research Project <br>
-   <b> Expected publish month : June 2026 
+   <b> Expected Publish Month : June 2026 
   
   
   
