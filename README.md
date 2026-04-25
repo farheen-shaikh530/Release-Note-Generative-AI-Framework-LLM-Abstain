@@ -8,8 +8,7 @@
 
 <p align="center">
   <b>Project Type:</b> Research Project <br>
-  <b>My Role:</b> Researcher & Developer <br>
-   <b> Expected to Publish On : June 2026 
+   <b> Expected publish month : June 2026 
   
   
   
